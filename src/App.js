@@ -26,6 +26,7 @@ function App() {
         <Route path="/profile/:username">
           <Profile />
         </Route>
+        //this is comment
       </Switch>
     </Router>
   );
