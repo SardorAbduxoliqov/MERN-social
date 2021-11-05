@@ -1,7 +1,7 @@
 import "./online.css";
 
 export default function Online({user}) {
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const PF = "http://localhost:8800/images/";
 
   return (
     <li className="rightbarFriend">

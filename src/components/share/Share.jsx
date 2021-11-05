@@ -12,7 +12,7 @@ import axios from "axios";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const PF = "http://localhost:8800/images/";
   const desc = useRef();
   const [file, setFile] = useState(null);
 
