@@ -12,7 +12,7 @@ import axios from "axios";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://gettingclose.herokuapp.com/images/";
   const desc = useRef();
   const [file, setFile] = useState(null);
 
@@ -30,11 +30,11 @@ export default function Share() {
       newPost.img = fileName;
       console.log(newPost);
       try {
-        await axios.post("/upload", data);
+        await axios.post("/api/upload", data);
       } catch (err) {}
     }
     try {
-      await axios.post("/posts", newPost);
+      await axios.post("/api/posts", newPost);
       window.location.reload();
     } catch (err) {}
   };

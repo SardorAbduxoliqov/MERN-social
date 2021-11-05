@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 
 export default function Rightbar({ user }) {
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://gettingclose.herokuapp.com/images/";
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   console.log(currentUser._id, "current User");
@@ -17,7 +17,7 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id || "nothing");
+        const friendList = await axios.get("/api/users/friends/" + user._id || "nothing");
         console.log(user._id, "friendList data");
         setFriends(friendList.data);
       } catch (err) {
@@ -30,12 +30,12 @@ export default function Rightbar({ user }) {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(`/users/${user._id}/unfollow`, {
+        await axios.put(`/api/users/${user._id}/unfollow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`/users/${user._id}/follow`, {
+        await axios.put(`/api/users/${user._id}/follow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });

@@ -1,7 +1,7 @@
 import "./online.css";
 
 export default function Online({user}) {
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://gettingclose.herokuapp.com/images/";
 
   return (
     <li className="rightbarFriend">

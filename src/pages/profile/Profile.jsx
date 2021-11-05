@@ -8,13 +8,13 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 export default function Profile() {
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://gettingclose.herokuapp.com/images/";
   const [user, setUser] = useState({});
   const username = useParams().username;
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${username}`);
+      const res = await axios.get(`/api/users?username=${username}`);
       setUser(res.data);
     };
     fetchUser();

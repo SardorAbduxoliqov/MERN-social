@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://gettingclose.herokuapp.com/images/";
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
